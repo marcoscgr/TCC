@@ -13,5 +13,5 @@ and open the template in the editor.
         <?php
         // put your code here
         ?>
-    </body>
+    </body> 
 </html>
