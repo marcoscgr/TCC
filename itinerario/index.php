@@ -16,27 +16,47 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
-        <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
-        
         <!-- CSS -->
-        <link rel="stylesheet"  type="text/css" href="css/estilo.css" />
-        
-
+        <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"  media="screen" />
     </head>
 
     <body>
-        <div id="principal">
-            <h2>Hello World !!!</h2>
-            <div id="mapa"></div>
+        
+<!--        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Mapa do Transporte Coletivo em Campo Grande</h2>
+            </div>
+            <div class="panel-body">
+                <div class="container">
+                     O mapa é exibido aqui 
+                    <div id="mapa" style="height: 500px; width: 700px"></div>
+                </div> 
+
+            </div>
+        </div>-->
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Mapa do Transporte Coletivo em Campo Grande</h3>
+            </div>
+            <div class="panel-body">
+                <!-- O mapa é exibido aqui -->
+                <div id="mapa"></div>
+            </div>
         </div>
+        
+       
 
-
-
+        
+        <!-- Gmaps API Javascript -->
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBsdcyR4RXAnrBh03qLCsZPYojIgAQ82ME&amp;sensor=false"></script>
 
         <!-- Scripts -->
         <script type="text/javascript" src="js/jquery-min.js"></script>
         <script type="text/javascript" src="js/padrao.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/mapa.js"></script>
+        <script type="text/javascript" src="js/infobox-min.js"></script>
     </body> 
 </html>
