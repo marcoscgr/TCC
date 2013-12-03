@@ -1,0 +1,86 @@
+[ {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Avenida AnhembÍ - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Avenida Costa Melo - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Avenida Graciliano Ramos - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Avenida Marechal Deodoro - Campo Grande - MS",
+                "Sentido": "Bairro/Terminal"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Avenida Rachel de Queiroz - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Ponto Int. Terminal Aero Rancho - Campo Grande - MS",
+                "Sentido": "Bairro/Terminal"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Rua Arquiteto Alvaro Mancini - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Rua Arquiteto Vilanova Artigas - Campo Grande - MS",
+                "Sentido": "Bairro/Terminal"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Rua Baliza - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Rua Carlos Drumond de Andrade - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Rua Charlote - Campo Grande - MS",
+                "Sentido": "Bairro/Terminal"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Rua Expedicionário Alcindo Jardim Chagas - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Rua Lagoa da Prata - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Rua Moçambique - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Rua Raquel de Queiroz - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Rua Santa Quitéria - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }, {
+                "id": "111",
+                "Linha": " AERO RANCHO/CENTENÁRIO  - LINHA 111",
+                "Endereco": "Travessa Andraus - Campo Grande - MS",
+                "Sentido": "Terminal/Bairro"
+            }]

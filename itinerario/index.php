@@ -22,33 +22,21 @@
     </head>
 
     <body>
-        
-<!--        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">Mapa do Transporte Coletivo em Campo Grande</h2>
-            </div>
-            <div class="panel-body">
-                <div class="container">
-                     O mapa é exibido aqui 
-                    <div id="mapa" style="height: 500px; width: 700px"></div>
-                </div> 
-
-            </div>
-        </div>-->
-        
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Mapa do Transporte Coletivo em Campo Grande</h3>
             </div>
             <div class="panel-body">
+                <div>Endereço: <span id="txtEndereco"></span> </div>
+                <div>Latitude: <span id="txtLatitude"></span> </div>
+                <div>Longitude: <span id="txtLongitude"></span> </div>
+                
                 <!-- O mapa é exibido aqui -->
                 <div id="mapa"></div>
             </div>
         </div>
-        
-       
 
-        
+       
         <!-- Gmaps API Javascript -->
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBsdcyR4RXAnrBh03qLCsZPYojIgAQ82ME&amp;sensor=false"></script>
 
