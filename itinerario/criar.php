@@ -24,9 +24,21 @@
     <body>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Mapa do Transporte Coletivo em Campo Grande</h3>
+                <h3 class="panel-title">Gera Rota do Transporte Coletivo em Campo Grande</h3>
             </div>
             <div class="panel-body">
+                <div>Endereço: <input type="text" id="txtEndereco" size="100" /> </div>
+                <div>Latitude: <input type="text" id="txtLatitude" size="50"/> </div>
+                <div>Longitude: <input type="text" id="txtLongitude" size="50"/> </div>
+                <br />
+                <input type="button" id="btnPegar" value="Pegar Localização" />
+                <input type="button" id="btnAdd" value="Adicionar Local" />
+                <input type="button" id="btnSalvar" value="Salvar" />
+
+                <div style="float:right;">Valores Array:</div><br />
+                <textarea id="textoIns" style="float:right;border: 1px solid; width: 297px; height: 278px;" ></textarea>
+                
+
                 <!-- O mapa é exibido aqui -->
                 <div id="mapa"></div>
             </div>
@@ -40,6 +52,6 @@
         <script type="text/javascript" src="js/jquery-min.js"></script>
         <script type="text/javascript" src="js/padrao.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/mapa.js"></script>
+        <script type="text/javascript" src="js/criaMapa.js"></script>
     </body> 
 </html>
