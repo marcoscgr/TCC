@@ -27,16 +27,23 @@
                 <h3 class="panel-title">Gera Rota do Transporte Coletivo em Campo Grande</h3>
             </div>
             <div class="panel-body">
-                <div>Endereço: <input type="text" id="txtEndereco" size="100" /> </div>
-                <div>Latitude: <input type="text" id="txtLatitude" size="50"/> </div>
-                <div>Longitude: <input type="text" id="txtLongitude" size="50"/> </div>
-                <br />
-                <input type="button" id="btnPegar" value="Pegar Localização" />
-                <input type="button" id="btnAdd" value="Adicionar Local" />
-                <input type="button" id="btnSalvar" value="Salvar" />
-
-                <div style="float:right;">Valores Array:</div><br />
-                <textarea id="textoIns" style="float:right;border: 1px solid; width: 297px; height: 278px;" ></textarea>
+                <div style="float:right; border:1px solid">
+                    <div>Endereço: <input type="text" id="txtEndereco" size="50" /> </div>
+                    <div>Latitude: <input type="text" id="txtLatitude" size="50"/> </div>
+                    <div>Longitude: <input type="text" id="txtLongitude" size="50"/> </div>
+                    <div>id Linha: <input type="text" id="txtLinha" size="30"/> </div>
+                    <div>Sentido: <input type="text" id="txtSentido" size="30"/> </div>
+                    <div>Nome Ponto: <input type="text" id="txtPonto" size="50"/> </div>
+                    <br />
+                    <input type="button" id="btnPegar" value="Pegar Localização" />
+                    <input type="button" id="btnAdd" value="Adicionar Local" />
+                    <input type="button" id="btnAddPonto" value="Ponto ônibus" />
+                    <input type="button" id="btnSalvar" value="Salvar" />
+                    <input type="button" id="btnLimpar" value="Limpar" />
+                    <br /><br />
+                    <textarea id="textoIns" style="width: 450px; height: 300px;" ></textarea>
+                    
+                </div>
                 
 
                 <!-- O mapa é exibido aqui -->

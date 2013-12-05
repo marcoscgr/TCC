@@ -84,29 +84,45 @@ alert(data);
 }
 
 $(document).ready(function () {
+    //Carrega o GMaps
     initialize();
 
+    //Busca a localização baseado no ponto marcado no mapa;
     $("#btnPegar").click(function(){
         pegaLatLang();
     });
     
+    //Limpa a caixa de texto com os valores até então armazenados
+    $("#btnLimpar").click(function(){
+        $("#textoIns").text("");
+    });
+
+
     var texto = "";
+    var linha = "";
+    var sentido = "";
+    var ponto = "";
+    
     $("#btnAdd").click(function(){
-//        $("#txtEndereco").val();
-//        $("#txtLatitude").val();
-//        $("#txtLongitude").val();
-//        $("#textoIns").val();
-        
+        linha = $("#txtLinha").val();
+        sentido = $("#txtSentido").val();
         texto = $("#textoIns").val();
+
+        texto += "INSERT INTO itinerario.rotas (rota_endereco,rota_latitude,rota_longitude,rota_ordem,lin_id, sen_id )VALUES ( \"" + $('#txtEndereco').val() + "\",\"" + $('#txtLatitude').val() + "\",\"" + $('#txtLongitude').val() + "\", NULL," + linha + "," + sentido + " );";
         
-        texto += "INSERT INTO(rota_endereco,rota_latitude,rota_longitude,rota_ordem )VALUES ( \"" + $('#txtEndereco').val() + "\",\"" + $('#txtLatitude').val() + "\",\"" + $('#txtLongitude').val() + "\" );";
-        
+        //Insere o texto com o insert no textarea
         $("#textoIns").text(texto);
     });
     
-    
-    $("#btnSalvar").click(function(){
-        _makeRequest("scripts/sqlCriaMapa.php", texto);
-    });
+    $("#btnAddPonto").click(function(){
+        linha = $("#txtLinha").val();
+        sentido = $("#txtSentido").val();
+        ponto = $("#txtPonto").val();
+        texto = $("#textoIns").val();
 
+        texto += "INSERT INTO itinerario.pontos (pon_endereco,pon_latitude,pon_longitude,pon_nome )VALUES ( \"" + $('#txtEndereco').val() + "\",\"" + $('#txtLatitude').val() + "\",\"" + $('#txtLongitude').val() + "\",\"" + ponto + "\" );";
+        
+        //Insere o texto com o insert no textarea
+        $("#textoIns").text(texto);
+    });
 });

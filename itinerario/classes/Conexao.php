@@ -23,7 +23,7 @@ class Conexao {
 		self::$db_host = "localhost";
 		self::$db_user = "root";
 		self::$db_pass = "10203040";
-		self::$db_database = "horarioItinerario";
+		self::$db_database = "itinerario";
 
 
 		#Variaveis de Conexao
