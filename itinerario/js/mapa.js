@@ -1,18 +1,67 @@
 
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
 var map;
-var marker;
+var inicio;
+var fim;
 
 function initialize() {
-    var latlng = new google.maps.LatLng(-20.4627751, -54.62249250000002);//Campo Grande
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    var campoGrande = new google.maps.LatLng(-20.4627751, -54.62249250000002);//Campo Grande
  
     var options = {
         zoom: 12,
-        center: latlng,
+        center: campoGrande,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
  
     map = new google.maps.Map(document.getElementById("mapa"), options);
+    directionsDisplay.setMap(map);
+    
+    //directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 }
+
+function calcRoute() {
+    var start = document.getElementById('start').value;
+    var end = document.getElementById('end').value;
+    var waypts = [];
+    var checkboxArray = document.getElementById('waypoints');
+    
+    for (var i = 0; i < checkboxArray.length; i++) {
+        if (checkboxArray.options[i].selected == true) {
+            waypts.push({
+            location:checkboxArray[i].value,
+                    stopover:true});
+        }
+    }
+
+    var request = {
+        origin: start,
+        destination: end,
+        waypoints: waypts,
+        optimizeWaypoints: false,
+        travelMode: google.maps.TravelMode.DRIVING
+    };
+    
+    directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+            var route = response.routes[0];
+            var summaryPanel = document.getElementById('directions_panel');
+            summaryPanel.innerHTML = '';
+
+            // For each route, display summary information.
+            for (var i = 0; i < route.legs.length; i++) {
+                var routeSegment = i + 1;
+                summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
+                summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+                summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+                summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+            }
+        }
+    });
+}
+  
 
 function carregarItinerarios() {
 
@@ -30,7 +79,8 @@ function carregarItinerarios() {
 }
 
 
+
 $(document).ready(function () {
     initialize();
-    carregarItinerarios();
+    //carregarItinerarios();
 });
