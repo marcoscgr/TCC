@@ -78,9 +78,36 @@ function carregarItinerarios() {
     });
 }
 
+function carregarPontos(){
+    $.getJSON('json/pontos.json', function(pontos) {
 
+        $.each(pontos, function(index, ponto) {
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(ponto.latitude, ponto.longitude),
+                //title: ponto.nome + "\n" + ponto.endereco,
+                map: map,
+                icon: "imagens/onibus.png"
+            });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: "<strong>" + ponto.nome + "</strong><br />" + ponto.endereco,
+                maxWidth: 300
+            });
+            
+            google.maps.event.addListener(marker, 'mouseover', function() {
+                infowindow.open(map,marker);
+            });
+            
+            google.maps.event.addListener(marker, 'mouseout', function() {
+                infowindow.close();
+            });
+        });
+    });
+}
 
 $(document).ready(function () {
     initialize();
-    //carregarItinerarios();
+    carregarPontos();
+    carregarItinerarios();
 });

@@ -38,7 +38,6 @@
 
         <!-- Scripts -->
         <script type="text/javascript" src="js/jquery-min.js"></script>
-        <script type="text/javascript" src="js/padrao.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/mapa.js"></script>
     </body> 

@@ -1,17 +1,1 @@
-[
-    {
-        "id": 1,
-        "Latitude": -19.212355602107472,
-        "Longitude": -44.20234468749999
-    },
-    {
-        "id": 2,
-        "Latitude": -22.618827234831404,
-        "Longitude": -42.57636812499999
-    },
-    {
-        "id": 3,
-        "Latitude": -22.57825604463875,
-        "Longitude": -48.68476656249999
-    }
-]
+[{"id":"1","nome":"Terminal Bandeirantes","endereco":"Avenida Bandeirantes, 3890-3964 - Guanandi, Campo Grande - MS, 79006-000, Rep\u00fablica Federativa do Brasil","latitude":"-20.493691449658336","longitude":"-54.648649402313254"},{"id":"2","nome":"Ponto 1","endereco":"Avenida Bandeirantes, 3661-3735 - Guanandi, Campo Grande - MS, 79006-001, Rep\u00fablica Federativa do Brasil","latitude":"-20.492204069674997","longitude":"-54.646846957855246"},{"id":"3","nome":"Ponto 2","endereco":"Avenida Bandeirantes, 3139-3217 - Bandeirantes, Campo Grande - MS, 79006-000, Rep\u00fablica Federativa do Brasil","latitude":"-20.488505656898063","longitude":"-54.643885799102804"},{"id":"4","nome":"Ponto 3","endereco":"Avenida Bandeirantes, 1869 - Bandeirantes, Campo Grande - MS, 79006-000, Rep\u00fablica Federativa do Brasil","latitude":"-20.479862279236148","longitude":"-54.636890597991965"},{"id":"5","nome":"Ponto 4","endereco":"Avenida Bandeirantes, 817-1011 - Amamba\u00ed, Campo Grande - MS, 79005-671, Rep\u00fablica Federativa do Brasil","latitude":"-20.471962208108817","longitude":"-54.630775161438010"},{"id":"6","nome":"Ponto 5","endereco":"Avenida Afonso Pena, 1422-1546 - Amamba\u00ed, Campo Grande - MS, 79005-001, Rep\u00fablica Federativa do Brasil","latitude":"-20.465308143127512","longitude":"-54.623329349212670"},{"id":"7","nome":"Ponto 6","endereco":"Avenida Afonso Pena, 2852-3044 - Centro, Campo Grande - MS, 79002-074, Rep\u00fablica Federativa do Brasil","latitude":"-20.463438520096354","longitude":"-54.611313052825950"},{"id":"8","nome":"Ponto 8","endereco":"Avenida Afonso Pena, 5236-5668 - Ch\u00e1cara Cachoeira, Campo Grande - MS, 79040-010, Rep\u00fablica Federativa do Brasil","latitude":"-20.459397644161246","longitude":"-54.587881274871850"}]
