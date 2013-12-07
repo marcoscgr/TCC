@@ -29,6 +29,7 @@
             <div class="panel-body">
                 <!-- O mapa é exibido aqui -->
                 <div id="mapa"></div>
+                <div id="directions_panel"></div>
             </div>
         </div>
 
