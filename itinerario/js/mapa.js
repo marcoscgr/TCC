@@ -4,8 +4,11 @@ var directionsService = new google.maps.DirectionsService();
 var map;
 var geocoder;
 
+var arrPontos = new Array();
+
 function initialize() {
     directionsDisplay = new google.maps.DirectionsRenderer();
+
     var campoGrande = new google.maps.LatLng(-20.4627751, -54.62249250000002);//Campo Grande
 
     var options = {
@@ -13,13 +16,11 @@ function initialize() {
         center: campoGrande,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    
+
     geocoder = new google.maps.Geocoder();
 
     map = new google.maps.Map(document.getElementById("mapa"), options);
     directionsDisplay.setMap(map);
-
-    //directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 }
 
 function calculaRota(waypoints) {
@@ -46,7 +47,6 @@ function calculaRota(waypoints) {
                 });
             }
         }
-//console.log(waypts);
     });
 
 
@@ -62,61 +62,8 @@ function calculaRota(waypoints) {
 
         if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
-
-//            var route = response.routes[0];
-//            var summaryPanel = document.getElementById('directions_panel');
-//            summaryPanel.innerHTML = '';
-//
-//            // For each route, display summary information.
-//            for (var i = 0; i < route.legs.length; i++) {
-//                var routeSegment = i + 1;
-//                summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
-//                summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-//                summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-//                summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-//            }
         }
     });
-
-
-//console.log(waypts);
-
-//    var checkboxArray = document.getElementById('waypoints');
-//
-//    for (var i = 0; i < checkboxArray.length; i++) {
-//        if (checkboxArray.options[i].selected == true) {
-//            waypts.push({
-//                location:checkboxArray[i].value,
-//                stopover:true
-//            });
-//        }
-//    }
-//
-//    var request = {
-//        origin: start,
-//        destination: end,
-//        waypoints: waypts,
-//        optimizeWaypoints: false,
-//        travelMode: google.maps.TravelMode.DRIVING
-//    };
-//
-//    directionsService.route(request, function(response, status) {
-//        if (status == google.maps.DirectionsStatus.OK) {
-//            directionsDisplay.setDirections(response);
-//            var route = response.routes[0];
-//            var summaryPanel = document.getElementById('directions_panel');
-//            summaryPanel.innerHTML = '';
-//
-//            // For each route, display summary information.
-//            for (var i = 0; i < route.legs.length; i++) {
-//                var routeSegment = i + 1;
-//                summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
-//                summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-//                summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-//                summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-//            }
-//        }
-//    });
 }
 
 
@@ -132,13 +79,6 @@ function carregarItinerarios() {
 
         //Para cada objeto json
         $.each(pontos, function(index, ponto) {
-
-//            //Adiciona marcadores no mapa;
-//            var marker = new google.maps.Marker({
-//                position: new google.maps.LatLng(ponto.latitude, ponto.longitude),
-//                title: ponto.endereco,
-//                map: map
-//            });
 
             //Se houver mudança na linha, reseta as variáveis para evitar sobreposição de valores;
             if( valor.linha !== ponto.linha && valor.linha != undefined){
@@ -167,8 +107,10 @@ function carregarItinerarios() {
 
 function carregarPontos(){
     $.getJSON('json/pontos.json', function(pontos) {
-
+        x = 0;
         $.each(pontos, function(index, ponto) {
+            arrPontos[x] = ponto.latitude + ', ' + ponto.longitude;
+            x++;
 
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(ponto.latitude, ponto.longitude),
@@ -226,12 +168,12 @@ function placeMarkerInicio(location) {
     google.maps.event.addListener(marker, 'click', function(event) {
         infowindow.open(map, marker);
     });
-    
+
     google.maps.event.addListener(marker, 'mouseup', function(event) {
         geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
-console.log(status);
+
             if (status == google.maps.GeocoderStatus.OK) {
-                if (results[0]) { 
+                if (results[0]) {
                     $("#directionInicio").val(marker.getPosition());
                     //infowindow.content = 'Ponto Inicial<br /><b>Endereço: </b>' + results[0].formatted_address
                     //infowindow.open(map, marker);
@@ -259,12 +201,12 @@ function placeMarkerFim(location) {
     google.maps.event.addListener(marker, 'click', function(event) {
         infowindow.open(map, marker);
     });
-    
+
     google.maps.event.addListener(marker, 'mouseup', function(event) {
         geocoder.geocode({ 'latLng': marker.getPosition() }, function (results, status) {
-console.log(status);
+
             if (status == google.maps.GeocoderStatus.OK) {
-                if (results[0]) { 
+                if (results[0]) {
                     $("#directionDestino").val( marker.getPosition() );
                     //infowindow.content = 'Ponto de Destino<br /><b>Endereço: </b>' + results[0].formatted_address
                     //infowindow.open(map, marker);
@@ -275,30 +217,122 @@ console.log(status);
 }
 
 function calcularRota(){
-    if( $("#directionInicio").val() == "" || $("#directionDestino").val() == "" ){
+    var begin = new Array()
+    begin[0] = $("#directionInicio").val();
+    begin[1] = $("#directionDestino").val();
+
+    if( begin[0] == "" || begin[1] == "" ){
         alert("Escolha o ponto de origem e destino !!!");
         return false;
     }
-    
-    alert('Calculando....');
+
+    calculaDistancias(begin)
 }
 
-
-function calculaDistancia() {
-  var service = new google.maps.DistanceMatrixService();
-  service.getDistanceMatrix(
-    {
-      origins: [origin1, origin2],
-      destinations: [destinationA, destinationB],
-      travelMode: google.maps.TravelMode.DRIVING,
-      unitSystem: google.maps.UnitSystem.METRIC,
-      avoidHighways: false,
-      avoidTolls: false
+/**
+ * Função que calcula a distância entre pontos;
+ * @param {string} begin
+ * @returns {void}
+ */
+function calculaDistancias(begin) {
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix({
+        origins: begin,
+        destinations: arrPontos,
+        travelMode: google.maps.TravelMode.WALKING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
     }, callback);
 }
 
+/**
+ * Processa o resultado da função calculaDistancias
+ * @param {object} response
+ * @param {string} status
+ * @returns {void}
+ */
+function callback(response, status) {
+    var valor = "";
+    var pontoInicial = "";
+
+    if (status != google.maps.DistanceMatrixStatus.OK) {
+        alert('Erro: ' + status);
+    } else {
+        var origins = response.originAddresses;
+
+        for (var i = 0; i < origins.length; i++) {
+            var results = response.rows[i].elements;
+            var menor = "";
+            var pontoProximo;
+            
+            if(i==0){
+                pontoInicial = $("#directionInicio").val();
+            }else{
+                pontoInicial = $("#directionDestino").val();
+            }
+
+            for (var j = 0; j < results.length; j++) {
+                
+                valor = results[j].distance.value;
+                
+                //Dados do ponto mais próximo
+                if(menor == "" || valor < menor){
+                    menor = valor;
+                    pontoProximo = arrPontos[j];
+                }
+            }
+
+//console.log("Menor: " + menor);
+//console.log("Próximo: " + pontoProximo);
+            
+            calculaRota2(pontoInicial, pontoProximo, i);
+        }
+    }
+}
+
+function calculaRota2(origin, end, i){
+    directionsDisplay[i] = new google.maps.DirectionsRenderer();
+
+    var request = {
+        origin: origin,
+        destination: end,
+        optimizeWaypoints: false,
+        travelMode: google.maps.TravelMode.WALKING
+    };
+
+    directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay[i].setDirections(response);
+            directionsDisplay[i].setMap(map);
+        }
+    });
+    
+    
+//    directionsService.route(request, function(response, status) {
+//        if (status == google.maps.DirectionsStatus.OK)
+//        {
+//            var steps = response.trips[0].routes[0].steps;
+//
+//            for (var step = 0; step < steps.length; step++)
+//            {
+//                polylineOptions = {
+//                    map: map,
+//                    strokeColor: "#FF0000",
+//                    strokeOpacity: 0.7,
+//                    strokeWeight: 5,
+//                    path: steps[step].lat_lngs,
+//                }
+//                new google.maps.Polyline(polylineOptions);
+//            }
+//        }
+//    });
+    
+}
+
+
 $(document).ready(function () {
     initialize();
-    //carregarPontos();
+    carregarPontos();
     carregarItinerarios();
 });

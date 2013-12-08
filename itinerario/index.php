@@ -35,6 +35,8 @@
 
             <div class="panel-body margem">
                 <!-- Armazena os valores inicio e destino da rota -->
+                <input type="text" name="directionPontos" id="directionPontos" value="" size="100"/>
+                <br />
                 <input type="text" name="directionInicio" id="directionInicio" value="" size="100"/>
                 <input type="text" name="directionDestino" id="directionDestino" value="" size="100"/>
                 
