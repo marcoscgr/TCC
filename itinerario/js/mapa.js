@@ -282,9 +282,6 @@ function callback(response, status) {
                     pontoProximo = arrPontos[j];
                 }
             }
-
-//console.log("Menor: " + menor);
-//console.log("Próximo: " + pontoProximo);
             
             calculaRota2(pontoInicial, pontoProximo, i);
         }
@@ -307,27 +304,6 @@ function calculaRota2(origin, end, i){
             directionsDisplay[i].setMap(map);
         }
     });
-    
-    
-//    directionsService.route(request, function(response, status) {
-//        if (status == google.maps.DirectionsStatus.OK)
-//        {
-//            var steps = response.trips[0].routes[0].steps;
-//
-//            for (var step = 0; step < steps.length; step++)
-//            {
-//                polylineOptions = {
-//                    map: map,
-//                    strokeColor: "#FF0000",
-//                    strokeOpacity: 0.7,
-//                    strokeWeight: 5,
-//                    path: steps[step].lat_lngs,
-//                }
-//                new google.maps.Polyline(polylineOptions);
-//            }
-//        }
-//    });
-    
 }
 
 
