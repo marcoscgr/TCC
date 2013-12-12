@@ -23,17 +23,27 @@
 
     <body>
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Mapa do Transporte Coletivo em Campo Grande</h3>
+            <div class="panel-heading fixo">
+                <h3 class="panel-title" style="float: left;">Mapa do Transporte Coletivo em Campo Grande</h3>
+                <div id="menu">
+                    Marcações:
+                    <button type="button" class="btn btn-default" id="pontoInicio" title="Clique para marcar seu ponto de origem" onclick="pontoInicio();">Ponto Inicial</button>
+                    <button type="button" class="btn btn-default" id="pontoDestino" title="Clique para marcar o ponto de destino" onclick="pontoDestino();">Ponto Final</button>
+                    <button type="button" class="btn btn-info" title="Clique para calcular a rota" onclick="calcularRota();">Calcular Rota</button>
+                </div>
             </div>
-            <div class="panel-body">
+
+            <div class="panel-body margem">
+                <!-- Armazena os valores inicio e destino da rota -->
+                <input type="hidden" name="directionInicio" id="directionInicio" value="" size="100"/>
+                <input type="hidden" name="directionDestino" id="directionDestino" value="" size="100"/>
+                
                 <!-- O mapa é exibido aqui -->
                 <div id="mapa"></div>
-                <div id="directions_panel"></div>
             </div>
         </div>
 
-       
+
         <!-- Gmaps API Javascript -->
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBsdcyR4RXAnrBh03qLCsZPYojIgAQ82ME&amp;sensor=false"></script>
 

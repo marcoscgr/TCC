@@ -11,9 +11,10 @@ and open the template in the editor.
 @charset "ISO-8859-1";
 
 #mapa{
-    float: left;
-    width: 860px;
-    height: 580px;
+/*    float: left;*/
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
 }
 
 #directions_panel{
@@ -47,4 +48,19 @@ and open the template in the editor.
     position: absolute; 
     width: 0; 
     left: 138px 
+}
+
+.fixo{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.margem{
+    margin-top: 75px;
+}
+
+#menu{
+    float:right;
+    margin-right: 300px;
 }
